@@ -17,5 +17,10 @@ func main() {
 		return c.String(http.StatusOK, "Hello "+name)
 	})
 
+	e.POST("/:name", func(c echo.Context) error {
+		name := c.Param("name")
+		return c.String(http.StatusOK, "Hello "+name)
+	})
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
